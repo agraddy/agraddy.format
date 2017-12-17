@@ -1,0 +1,22 @@
+{
+  "name": "agraddy.format",
+  "version": "0.1.0",
+  "description": "Coming soon.",
+  "main": "index.js",
+  "author": "Anthony Graddy",
+  "license": "MIT",
+  "homepage": "https://github.com/agraddy/agraddy.format#readme",
+  "scripts": {
+    "test": "node ./test"
+  },
+  "repository": {
+	  "type": "git",
+	  "url": "git://github.com/agraddy/agraddy.format.git"
+  },
+  "bugs": {
+	  "url": "https://github.com/agraddy/agraddy.format/issues"
+  },
+  "devDependencies": {
+	  "agraddy.test.tap": "^0.4.0"
+  }
+}

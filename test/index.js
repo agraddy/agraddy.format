@@ -33,6 +33,9 @@ tap.assert.equal(mod.intrim('asdf||qwerty', '|', '<br>'), 'asdf<br>qwerty', 'Sho
 // alias for String.replace() - used for chaining
 tap.assert.equal(mod.replace('abc', 'b', ''), 'ac', 'Should call String.replace().');
 
+tap.assert.equal(mod.or(['one', 'two', 'three']), 'one, two, or three', 'Should comma separate by comma and last one should separate with oxford comma or.');
+tap.assert.equal(mod.and(['one', 'two', 'three']), 'one, two, and three', 'Should comma separate by comma and last one should separate with oxford comma and.');
+
 input = '|||one||two|three|';
 output = mod.start(input).trim('|').intrim('|', '</li><li>').untrim('<li>', '</li>').end();
 tap.assert.equal(output, '<li>one</li><li>two</li><li>three</li>', 'Should chain parse string.');

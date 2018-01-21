@@ -42,6 +42,8 @@ input = '|||one||two|three|';
 output = mod.start(input).trim('|').intrim('|', '</li><li>').untrim('<li>', '</li>').end();
 tap.assert.equal(output, '<li>one</li><li>two</li><li>three</li>', 'Should chain parse string.');
 
+tap.assert.equal(mod.number('1000'), '1,000.00', 'Should format number.');
+tap.assert.equal(mod.number('1000', true), '1,000', 'Should return a whole number.');
 
 
 

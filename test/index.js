@@ -16,6 +16,8 @@ tap.assert.equal(mod.money('1,000'), '$1,000.00', 'Should be equal.');
 tap.assert.equal(mod.money('$1,000'), '$1,000.00', 'Should be equal.');
 tap.assert.equal(mod.money('asdf') instanceof Error, true, 'Should create an error when not a valid number.');
 
+tap.assert.equal(mod.money('1', false, '£'), '£1.00', 'Should be equal.');
+
 // uses mod.ltrim and mod.rtrim
 tap.assert.equal(mod.trim('||asdf|', '|'), 'asdf', 'Should trim passed in character.');
 tap.assert.equal(mod.trim('||asdf|', '|', '[', ']'), '[asdf]', 'Should trim passed in character.');

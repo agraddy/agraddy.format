@@ -14,6 +14,7 @@ tap.assert.equal(mod.money(1, true), '$1', 'Should be equal.');
 tap.assert.equal(mod.money(1000), '$1,000.00', 'Should be equal.');
 tap.assert.equal(mod.money('1,000'), '$1,000.00', 'Should be equal.');
 tap.assert.equal(mod.money('$1,000'), '$1,000.00', 'Should be equal.');
+tap.assert.equal(mod.money(-100), '$-100.00', 'Should be equal.');
 tap.assert.equal(mod.money('asdf') instanceof Error, true, 'Should create an error when not a valid number.');
 
 tap.assert.equal(mod.money('1', false, '£'), '£1.00', 'Should be equal.');
@@ -44,6 +45,8 @@ tap.assert.equal(output, '<li>one</li><li>two</li><li>three</li>', 'Should chain
 
 tap.assert.equal(mod.number('1000'), '1,000.00', 'Should format number.');
 tap.assert.equal(mod.number('1000', true), '1,000', 'Should return a whole number.');
+tap.assert.equal(mod.number('-100'), '-100.00', 'Should handle negative numbers properly.');
+tap.assert.equal(mod.number('-1000'), '-1,000.00', 'Should handle negative numbers properly.');
 
 
 

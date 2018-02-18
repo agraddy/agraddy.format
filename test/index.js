@@ -37,7 +37,9 @@ tap.assert.equal(mod.intrim('asdf||qwerty', '|', '<br>'), 'asdf<br>qwerty', 'Sho
 tap.assert.equal(mod.replace('abc', 'b', ''), 'ac', 'Should call String.replace().');
 
 tap.assert.equal(mod.or(['one', 'two', 'three']), 'one, two, or three', 'Should comma separate by comma and last one should separate with oxford comma or.');
+tap.assert.equal(mod.or(['one', 'two']), 'one or two', 'Should not use comma when two items for or.');
 tap.assert.equal(mod.and(['one', 'two', 'three']), 'one, two, and three', 'Should comma separate by comma and last one should separate with oxford comma and.');
+tap.assert.equal(mod.and(['one', 'two']), 'one and two', 'Should not use comma when two items for and.');
 
 input = '|||one||two|three|';
 output = mod.start(input).trim('|').intrim('|', '</li><li>').untrim('<li>', '</li>').end();

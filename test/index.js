@@ -42,6 +42,11 @@ tap.assert.equal(mod.and(['one', 'two', 'three']), 'one, two, and three', 'Shoul
 tap.assert.equal(mod.and(['one', 'two']), 'one and two', 'Should not use comma when two items for and.');
 
 input = '|||one||two|three|';
+// start: starts the chain
+// trim: removes outside bars = one||two|three
+// intrim: replaces inside bars = one</li><li>two</li><li>three
+// untrim: add to front and back = <li>one</li><li>two</li><li>three</li>
+// end: ends the chain
 output = mod.start(input).trim('|').intrim('|', '</li><li>').untrim('<li>', '</li>').end();
 tap.assert.equal(output, '<li>one</li><li>two</li><li>three</li>', 'Should chain parse string.');
 
@@ -51,5 +56,9 @@ tap.assert.equal(mod.number('-100'), '-100.00', 'Should handle negative numbers 
 tap.assert.equal(mod.number('-1000'), '-1,000.00', 'Should handle negative numbers properly.');
 
 
-
+tap.assert.equal(mod.camelCase('one two three'), 'OneTwoThree', 'Should join and uppercase first letters.');
+tap.assert.equal(mod.camelCase('one two three', false), 'oneTwoThree', 'Should join and uppercase first letters except for first word.');
+tap.assert.equal(mod.title('one two three'), 'One Two Three', 'Should uppercase first letters.');
+tap.assert.equal(mod.underscore('one two three'), 'one_two_three', 'Should add underscores.');
+tap.assert.equal(mod.start('one two three').title().underscore().end(), 'One_Two_Three', 'Should chain parse string.');
 

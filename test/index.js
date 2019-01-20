@@ -62,5 +62,8 @@ tap.assert.equal(mod.camelCase('one_two_three'), 'OneTwoThree', 'Should join and
 tap.assert.equal(mod.camelCase('one_two_three', false), 'oneTwoThree', 'Should join and uppercase first letters except for first word.');
 tap.assert.equal(mod.title('one two three'), 'One Two Three', 'Should uppercase first letters.');
 tap.assert.equal(mod.underscore('one two three'), 'one_two_three', 'Should add underscores.');
+tap.assert.equal(mod.underscore('one-two-three'), 'one_two_three', 'Should add underscores.');
 tap.assert.equal(mod.start('one two three').title().underscore().end(), 'One_Two_Three', 'Should chain parse string.');
 
+tap.assert.equal(mod.dash('one two three'), 'one-two-three', 'Should join with a dash.');
+tap.assert.equal(mod.dash('one_two_three'), 'one-two-three', 'Should replace the underscores with dashes.');
